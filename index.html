@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Hukum Perbandingan Tetap</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0D1B2A;--surface:#132338;--surface2:#1A2F47;
+  --teal:#2DD4BF;--teal-dim:#1A8A7A;--teal-dark:#0F5A52;
+  --amber:#F59E0B;--amber-dim:#92600A;
+  --text:#E8F4F0;--muted:#7BA8A0;--border:rgba(45,212,191,0.15);
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.75}
+
+header{
+  padding:4rem 2rem 3rem;text-align:center;
+  background:linear-gradient(160deg,#0D1B2A 0%,#132338 60%,#0F5A52 100%);
+  border-bottom:1px solid var(--border);position:relative;overflow:hidden;
+}
+header::after{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:300px;height:300px;border-radius:50%;
+  border:60px solid rgba(45,212,191,0.06);
+}
+.badge{display:inline-block;background:rgba(45,212,191,0.1);border:1px solid var(--border);
+  color:var(--teal);font-size:11px;letter-spacing:4px;text-transform:uppercase;
+  padding:6px 16px;border-radius:20px;margin-bottom:1.25rem}
+header h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3.2rem);
+  line-height:1.2;color:#fff}
+header h1 em{color:var(--teal);font-style:normal}
+.header-tagline{margin-top:.75rem;color:var(--muted);font-size:.95rem;letter-spacing:.5px}
+.teal-rule{width:60px;height:2px;background:var(--teal);margin:1.25rem auto 0;opacity:.6}
+
+.container{max-width:860px;margin:0 auto;padding:3rem 2rem}
+.section-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--teal);margin-bottom:.4rem}
+h2{font-family:'DM Serif Display',serif;font-size:1.7rem;color:#fff;
+  margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+p{margin-bottom:1rem;color:var(--text)}
+
+/* INTRO */
+.def-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--teal);
+  border-radius:8px;padding:1.75rem 2rem;margin-bottom:3rem}
+.def-box p{color:#c5e8e3}
+.formula-center{text-align:center;font-family:'DM Serif Display',serif;font-size:1.3rem;
+  color:var(--teal);margin:1rem 0;letter-spacing:.5px}
+
+/* PORTRAIT */
+.penemu-grid{display:grid;grid-template-columns:230px 1fr;gap:2.5rem;margin-bottom:3rem;align-items:start}
+@media(max-width:600px){.penemu-grid{grid-template-columns:1fr}}
+.portrait-wrap{text-align:center}
+.portrait-img{
+  width:200px;height:260px;margin:0 auto;overflow:hidden;
+  border:3px solid var(--teal-dim);border-radius:6px;
+  background:var(--surface2);display:block;
+}
+.portrait-img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.p-name{margin-top:.75rem;font-family:'DM Serif Display',serif;font-size:1rem;color:#fff}
+.p-year{font-size:.8rem;color:var(--muted);margin-top:2px}
+
+/* RATIO TABLE */
+.ratio-section{background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:1.75rem;margin-bottom:3rem}
+.ratio-section .section-tag{margin-bottom:.75rem}
+.ratio-table{width:100%;border-collapse:collapse;margin-top:1rem}
+.ratio-table th{background:rgba(45,212,191,0.1);color:var(--teal);font-size:.8rem;
+  letter-spacing:2px;text-transform:uppercase;padding:.6rem 1rem;text-align:left;
+  border-bottom:1px solid var(--border)}
+.ratio-table td{padding:.7rem 1rem;border-bottom:1px solid var(--border);
+  color:var(--text);font-size:.9rem}
+.ratio-table tr:last-child td{border-bottom:none}
+.ratio-table .highlight{color:var(--teal);font-weight:500}
+
+/* VISUAL BAR */
+.bar-visual{margin:2rem 0}
+.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:.75rem}
+.bar-label{width:110px;font-size:.85rem;color:var(--muted);flex-shrink:0}
+.bar-track{flex:1;height:28px;background:var(--surface2);border-radius:4px;overflow:hidden;
+  display:flex;border:1px solid var(--border)}
+.bar-h{background:var(--teal);height:100%;display:flex;align-items:center;
+  justify-content:flex-end;padding-right:6px;font-size:.75rem;font-weight:500;color:#0D1B2A}
+.bar-o{background:var(--amber-dim);height:100%;display:flex;align-items:center;
+  justify-content:flex-end;padding-right:6px;font-size:.75rem;font-weight:500;color:#fff}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:3rem}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;
+  padding:1.25rem;border-top:3px solid var(--teal)}
+.card-icon{font-size:1.75rem;margin-bottom:.5rem}
+.card h4{font-family:'DM Serif Display',serif;font-size:1rem;color:#fff;margin-bottom:.4rem}
+.card p{font-size:.875rem;color:var(--muted);margin:0;line-height:1.6}
+
+/* QUOTE */
+blockquote{border-left:3px solid var(--teal);padding:.85rem 1.25rem;
+  background:rgba(45,212,191,0.05);border-radius:0 6px 6px 0;margin:0 0 3rem}
+blockquote p{font-family:'DM Serif Display',serif;font-size:1.1rem;color:#c5e8e3;font-style:italic;margin:0}
+blockquote cite{display:block;margin-top:.5rem;font-size:.8rem;color:var(--muted);font-style:normal}
+
+.summary-list{list-style:none;padding:0;margin-bottom:2rem}
+.summary-list li{padding:.6rem 0 .6rem 1.5rem;border-bottom:1px solid var(--border);
+  position:relative;color:var(--text);font-size:.95rem}
+.summary-list li::before{content:'›';position:absolute;left:0;color:var(--teal);font-weight:700}
+
+footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;
+  padding:1.5rem;font-size:.85rem;color:var(--muted)}
+footer span{color:var(--teal)}
+hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Hukum Dasar Kimia</div>
+  <h1>Hukum <em>Perbandingan Tetap</em></h1>
+  <p class="header-tagline">Hukum Proust · La loi des proportions définies · 1799</p>
+  <div class="teal-rule"></div>
+</header>
+
+<div class="container">
+
+  <section>
+    <p class="section-tag">Definisi</p>
+    <h2>Apa Itu Hukum Perbandingan Tetap?</h2>
+    <div class="def-box">
+      <p>Hukum Perbandingan Tetap (Law of Definite Proportions) menyatakan bahwa <strong>suatu senyawa kimia selalu mengandung unsur-unsur penyusunnya dalam perbandingan massa yang tetap dan tidak bergantung pada sumber atau cara pembuatannya.</strong></p>
+      <p class="formula-center">massa unsur A : massa unsur B = konstan</p>
+      <p style="text-align:center;font-size:.9rem;color:var(--muted)">Air selalu tersusun dari H dan O dengan perbandingan massa 1 : 8, di mana pun di dunia ia dibuat.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="section-tag">Sang Penemu</p>
+    <h2>Joseph Louis Proust</h2>
+    <div class="penemu-grid">
+      <div class="portrait-wrap">
+        <div class="portrait-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Joseph_Louis_Proust.jpg/440px-Joseph_Louis_Proust.jpg"
+               alt="Joseph Louis Proust"
+               onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem\'>Proust</div>'"/>
+        </div>
+        <p class="p-name">Joseph Louis Proust</p>
+        <p class="p-year">26 Sep 1754 — 5 Jul 1826</p>
+        <p class="p-year">Angers, Prancis</p>
+      </div>
+      <div>
+        <p>Joseph Louis Proust adalah seorang kimiawan Prancis yang menghabiskan sebagian besar kariernya di Spanyol sebagai direktur laboratorium kerajaan di Madrid. Ia dikenal atas keteguhannya dalam melakukan analisis kuantitatif yang sangat teliti.</p>
+        <div style="background:rgba(45,212,191,0.07);border-left:3px solid var(--teal);padding:.85rem 1rem;border-radius:0 6px 6px 0;margin:1rem 0">
+          <em style="color:#c5e8e3">"Alam tidak menciptakan campuran; ia mengenal hanya senyawa yang pasti dan tetap."</em>
+        </div>
+        <p>Proust mendebat teori Berthollet selama hampir 8 tahun (1799–1807). Berthollet percaya bahwa komposisi senyawa bervariasi tergantung kondisi. Proust dengan sabar membuktikan melalui ratusan eksperimen bahwa Berthollet keliru.</p>
+        <p>Karya monumentalnya akhirnya diterima luas setelah John Dalton menggunakannya sebagai landasan Teori Atom (1803), yang mengonfirmasi bahwa senyawa terbentuk dari atom-atom dalam rasio bilangan bulat yang tetap.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ratio-section">
+    <p class="section-tag">Bukti Eksperimen</p>
+    <h2 style="border:none;padding:0;margin-bottom:1rem">Perbandingan Massa Air (H₂O) dari Berbagai Sumber</h2>
+    <p style="color:var(--muted);font-size:.9rem">Tidak peduli dari mana air berasal — sungai, hujan, atau sintesis laboratorium — komposisinya selalu sama:</p>
+    <table class="ratio-table">
+      <thead>
+        <tr><th>Sumber Air</th><th>Massa H (gram)</th><th>Massa O (gram)</th><th>Rasio H:O</th><th>% Hydrogen</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Air sungai (100g)</td><td>11.2</td><td>88.8</td><td class="highlight">1 : 7.93</td><td class="highlight">11.2%</td></tr>
+        <tr><td>Air hujan (100g)</td><td>11.2</td><td>88.8</td><td class="highlight">1 : 7.93</td><td class="highlight">11.2%</td></tr>
+        <tr><td>Sintesis lab (100g)</td><td>11.1</td><td>88.9</td><td class="highlight">1 : 8.01</td><td class="highlight">11.1%</td></tr>
+        <tr><td>Air laut (100g)</td><td>11.2</td><td>88.8</td><td class="highlight">≈ 1 : 8</td><td class="highlight">≈ 11.2%</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:1rem;font-size:.85rem;color:var(--muted)">* Perbedaan kecil disebabkan ketidaktelitian pengukuran, bukan komposisi yang berbeda.</p>
+
+    <div class="bar-visual">
+      <p style="font-size:.85rem;color:var(--muted);margin-bottom:.75rem">Visualisasi perbandingan H vs O dalam 100 gram H₂O:</p>
+      <div class="bar-row">
+        <span class="bar-label">Sampel 1</span>
+        <div class="bar-track">
+          <div class="bar-h" style="width:11.2%">H</div>
+          <div class="bar-o" style="width:88.8%">O</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Sampel 2</span>
+        <div class="bar-track">
+          <div class="bar-h" style="width:11.2%">H</div>
+          <div class="bar-o" style="width:88.8%">O</div>
+        </div>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Sampel 3</span>
+        <div class="bar-track">
+          <div class="bar-h" style="width:11.1%">H</div>
+          <div class="bar-o" style="width:88.9%">O</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:1.5rem;margin-top:.75rem;font-size:.8rem">
+        <span><span style="display:inline-block;width:12px;height:12px;background:var(--teal);border-radius:2px;margin-right:4px;vertical-align:middle"></span>Hidrogen</span>
+        <span><span style="display:inline-block;width:12px;height:12px;background:var(--amber-dim);border-radius:2px;margin-right:4px;vertical-align:middle"></span>Oksigen</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <p class="section-tag">Contoh Senyawa Lain</p>
+    <h2>Perbandingan Tetap pada Berbagai Senyawa</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">💧</div>
+        <h4>Air (H₂O)</h4>
+        <p>H : O = 1 : 8<br/>2 gram H selalu bergabung dengan 16 gram O</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧂</div>
+        <h4>Garam Dapur (NaCl)</h4>
+        <p>Na : Cl = 23 : 35.5<br/>Rasio massa selalu 39.3% Na dan 60.7% Cl</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⬛</div>
+        <h4>Karbon Dioksida (CO₂)</h4>
+        <p>C : O = 3 : 8<br/>12 gram C selalu bergabung dengan 32 gram O</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔶</div>
+        <h4>Besi(II) Sulfida (FeS)</h4>
+        <p>Fe : S = 7 : 4<br/>56 gram Fe selalu bergabung dengan 32 gram S</p>
+      </div>
+    </div>
+  </section>
+
+  <blockquote>
+    <p>"Senyawa adalah produk alam. Tidak ada yang lebih pasti daripada komposisinya yang tidak berubah."</p>
+    <cite>— Joseph Louis Proust, 1799</cite>
+  </blockquote>
+
+  <hr/>
+
+  <section>
+    <p class="section-tag">Rangkuman</p>
+    <h2>Poin-Poin Kunci</h2>
+    <ul class="summary-list">
+      <li>Senyawa murni selalu memiliki komposisi unsur yang tetap, terlepas dari sumbernya.</li>
+      <li>Dikemukakan oleh Joseph Louis Proust pada tahun 1799 berdasarkan analisis kuantitatif yang teliti.</li>
+      <li>Hukum ini menjadi landasan Teori Atom Dalton (1803).</li>
+      <li>Berlaku untuk senyawa, bukan campuran — campuran memiliki komposisi yang bervariasi.</li>
+      <li>Contoh klasik: H₂O selalu memiliki rasio H : O = 1 : 8 berdasarkan massa.</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer>
+  <p>Materi Kimia · <span>Hukum Perbandingan Tetap</span> · Proust (1799)</p>
+</footer>
+</body>
+</html>
