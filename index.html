@@ -8,45 +8,63 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0D1B2A;--surface:#132338;--surface2:#1A2F47;
-  --teal:#2DD4BF;--teal-dim:#1A8A7A;--teal-dark:#0F5A52;
-  --amber:#F59E0B;--amber-dim:#92600A;
-  --text:#E8F4F0;--muted:#7BA8A0;--border:rgba(45,212,191,0.15);
+  --bg:#FFF7ED;
+  --surface:#FFFFFF;
+  --surface2:#FFEDD5;
+  --orange:#F97316;
+  --orange-dark:#C2410C;
+  --orange-deep:#7C2D12;
+  --orange-bright:#FB923C;
+  --orange-light:#FED7AA;
+  --yellow:#FBBF24;
+  --text:#431407;
+  --muted:#9A3412;
+  --border:rgba(249,115,22,0.2);
+  --border-strong:rgba(249,115,22,0.45);
 }
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.75}
 
 header{
   padding:4rem 2rem 3rem;text-align:center;
-  background:linear-gradient(160deg,#0D1B2A 0%,#132338 60%,#0F5A52 100%);
-  border-bottom:1px solid var(--border);position:relative;overflow:hidden;
+  background:linear-gradient(150deg,#C2410C 0%,#EA580C 30%,#F97316 65%,#FBBF24 100%);
+  border-bottom:3px solid var(--orange-dark);
+  position:relative;overflow:hidden;
 }
 header::after{
   content:'';position:absolute;top:-60px;right:-60px;
   width:300px;height:300px;border-radius:50%;
-  border:60px solid rgba(45,212,191,0.06);
+  border:60px solid rgba(255,255,255,0.07);
 }
-.badge{display:inline-block;background:rgba(45,212,191,0.1);border:1px solid var(--border);
-  color:var(--teal);font-size:11px;letter-spacing:4px;text-transform:uppercase;
-  padding:6px 16px;border-radius:20px;margin-bottom:1.25rem}
+header::before{
+  content:'';position:absolute;bottom:-80px;left:-50px;
+  width:250px;height:250px;border-radius:50%;
+  background:rgba(255,255,255,0.05);
+}
+.badge{display:inline-block;background:rgba(255,255,255,0.18);backdrop-filter:blur(4px);
+  border:1px solid rgba(255,255,255,0.3);color:#fff;
+  font-size:11px;letter-spacing:4px;text-transform:uppercase;
+  padding:6px 16px;border-radius:20px;margin-bottom:1.25rem;position:relative}
 header h1{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3.2rem);
-  line-height:1.2;color:#fff}
-header h1 em{color:var(--teal);font-style:normal}
-.header-tagline{margin-top:.75rem;color:var(--muted);font-size:.95rem;letter-spacing:.5px}
-.teal-rule{width:60px;height:2px;background:var(--teal);margin:1.25rem auto 0;opacity:.6}
+  line-height:1.2;color:#fff;position:relative;text-shadow:0 2px 8px rgba(124,45,18,0.35)}
+header h1 em{color:#FEF9C3;font-style:normal}
+.header-tagline{margin-top:.75rem;color:rgba(255,255,255,0.8);font-size:.95rem;letter-spacing:.5px;position:relative}
+.teal-rule{width:60px;height:3px;background:rgba(255,255,255,0.5);margin:1.25rem auto 0;border-radius:2px}
 
 .container{max-width:860px;margin:0 auto;padding:3rem 2rem}
 .section-tag{font-size:11px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--teal);margin-bottom:.4rem}
-h2{font-family:'DM Serif Display',serif;font-size:1.7rem;color:#fff;
-  margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+  color:var(--orange-dark);margin-bottom:.4rem;font-weight:600}
+h2{font-family:'DM Serif Display',serif;font-size:1.7rem;color:var(--orange-deep);
+  margin-bottom:1.25rem;padding-bottom:.5rem;border-bottom:2px solid var(--border-strong)}
 p{margin-bottom:1rem;color:var(--text)}
 
 /* INTRO */
-.def-box{background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--teal);
-  border-radius:8px;padding:1.75rem 2rem;margin-bottom:3rem}
-.def-box p{color:#c5e8e3}
+.def-box{background:linear-gradient(135deg,var(--orange-dark) 0%,var(--orange) 100%);
+  border-radius:12px;padding:1.75rem 2rem;margin-bottom:3rem;
+  box-shadow:0 8px 32px rgba(234,88,12,0.35)}
+.def-box p{color:#fff}
 .formula-center{text-align:center;font-family:'DM Serif Display',serif;font-size:1.3rem;
-  color:var(--teal);margin:1rem 0;letter-spacing:.5px}
+  color:#FEF9C3;margin:1rem 0;letter-spacing:.5px;
+  background:rgba(0,0,0,0.15);border-radius:6px;padding:.5rem 1rem}
 
 /* PORTRAIT */
 .penemu-grid{display:grid;grid-template-columns:230px 1fr;gap:2.5rem;margin-bottom:3rem;align-items:start}
@@ -54,60 +72,62 @@ p{margin-bottom:1rem;color:var(--text)}
 .portrait-wrap{text-align:center}
 .portrait-img{
   width:200px;height:260px;margin:0 auto;overflow:hidden;
-  border:3px solid var(--teal-dim);border-radius:6px;
+  border:3px solid var(--orange);border-radius:8px;
   background:var(--surface2);display:block;
+  box-shadow:6px 6px 0 var(--orange-light);
 }
 .portrait-img img{width:100%;height:100%;object-fit:cover;object-position:top}
-.p-name{margin-top:.75rem;font-family:'DM Serif Display',serif;font-size:1rem;color:#fff}
+.p-name{margin-top:.75rem;font-family:'DM Serif Display',serif;font-size:1rem;color:var(--orange-deep)}
 .p-year{font-size:.8rem;color:var(--muted);margin-top:2px}
 
 /* RATIO TABLE */
-.ratio-section{background:var(--surface);border:1px solid var(--border);border-radius:8px;
-  padding:1.75rem;margin-bottom:3rem}
+.ratio-section{background:var(--surface);border:2px solid var(--orange-light);border-radius:12px;
+  padding:1.75rem;margin-bottom:3rem;box-shadow:0 4px 16px rgba(249,115,22,0.1)}
 .ratio-section .section-tag{margin-bottom:.75rem}
-.ratio-table{width:100%;border-collapse:collapse;margin-top:1rem}
-.ratio-table th{background:rgba(45,212,191,0.1);color:var(--teal);font-size:.8rem;
-  letter-spacing:2px;text-transform:uppercase;padding:.6rem 1rem;text-align:left;
-  border-bottom:1px solid var(--border)}
-.ratio-table td{padding:.7rem 1rem;border-bottom:1px solid var(--border);
-  color:var(--text);font-size:.9rem}
+.ratio-table{width:100%;border-collapse:collapse;margin-top:1rem;border-radius:8px;overflow:hidden}
+.ratio-table th{background:linear-gradient(90deg,var(--orange-dark),var(--orange));
+  color:#fff;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;
+  padding:.6rem 1rem;text-align:left}
+.ratio-table td{padding:.7rem 1rem;border-bottom:1px solid var(--orange-light);
+  color:var(--text);font-size:.9rem;background:var(--surface)}
 .ratio-table tr:last-child td{border-bottom:none}
-.ratio-table .highlight{color:var(--teal);font-weight:500}
+.ratio-table .highlight{color:var(--orange-dark);font-weight:600}
 
 /* VISUAL BAR */
 .bar-visual{margin:2rem 0}
 .bar-row{display:flex;align-items:center;gap:12px;margin-bottom:.75rem}
 .bar-label{width:110px;font-size:.85rem;color:var(--muted);flex-shrink:0}
 .bar-track{flex:1;height:28px;background:var(--surface2);border-radius:4px;overflow:hidden;
-  display:flex;border:1px solid var(--border)}
-.bar-h{background:var(--teal);height:100%;display:flex;align-items:center;
-  justify-content:flex-end;padding-right:6px;font-size:.75rem;font-weight:500;color:#0D1B2A}
-.bar-o{background:var(--amber-dim);height:100%;display:flex;align-items:center;
-  justify-content:flex-end;padding-right:6px;font-size:.75rem;font-weight:500;color:#fff}
+  display:flex;border:1px solid var(--border-strong)}
+.bar-h{background:var(--orange-bright);height:100%;display:flex;align-items:center;
+  justify-content:flex-end;padding-right:6px;font-size:.75rem;font-weight:600;color:#fff}
+.bar-o{background:var(--orange-dark);height:100%;display:flex;align-items:center;
+  justify-content:flex-end;padding-right:6px;font-size:.75rem;font-weight:600;color:#fff}
 
 /* CARDS */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:3rem}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:8px;
-  padding:1.25rem;border-top:3px solid var(--teal)}
+.card{background:var(--surface);border:1px solid var(--border-strong);border-radius:10px;
+  padding:1.25rem;border-top:4px solid var(--orange)}
 .card-icon{font-size:1.75rem;margin-bottom:.5rem}
-.card h4{font-family:'DM Serif Display',serif;font-size:1rem;color:#fff;margin-bottom:.4rem}
+.card h4{font-family:'DM Serif Display',serif;font-size:1rem;color:var(--orange-deep);margin-bottom:.4rem}
 .card p{font-size:.875rem;color:var(--muted);margin:0;line-height:1.6}
 
 /* QUOTE */
-blockquote{border-left:3px solid var(--teal);padding:.85rem 1.25rem;
-  background:rgba(45,212,191,0.05);border-radius:0 6px 6px 0;margin:0 0 3rem}
-blockquote p{font-family:'DM Serif Display',serif;font-size:1.1rem;color:#c5e8e3;font-style:italic;margin:0}
+blockquote{border-left:4px solid var(--orange);padding:.85rem 1.25rem;
+  background:var(--surface2);border-radius:0 8px 8px 0;margin:0 0 3rem;
+  box-shadow:inset 0 0 0 1px var(--border)}
+blockquote p{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--orange-dark);font-style:italic;margin:0}
 blockquote cite{display:block;margin-top:.5rem;font-size:.8rem;color:var(--muted);font-style:normal}
 
 .summary-list{list-style:none;padding:0;margin-bottom:2rem}
 .summary-list li{padding:.6rem 0 .6rem 1.5rem;border-bottom:1px solid var(--border);
   position:relative;color:var(--text);font-size:.95rem}
-.summary-list li::before{content:'›';position:absolute;left:0;color:var(--teal);font-weight:700}
+.summary-list li::before{content:'›';position:absolute;left:0;color:var(--orange);font-weight:700;font-size:1.2rem}
 
-footer{background:var(--surface);border-top:1px solid var(--border);text-align:center;
-  padding:1.5rem;font-size:.85rem;color:var(--muted)}
-footer span{color:var(--teal)}
-hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
+footer{background:linear-gradient(90deg,var(--orange-deep),var(--orange-dark));
+  text-align:center;padding:1.5rem;font-size:.85rem;color:rgba(255,255,255,0.7)}
+footer span{color:var(--orange-light)}
+hr{border:none;border-top:2px solid var(--orange-light);margin:2.5rem 0}
 </style>
 </head>
 <body>
@@ -115,7 +135,7 @@ hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
 <header>
   <div class="badge">Hukum Dasar Kimia</div>
   <h1>Hukum <em>Perbandingan Tetap</em></h1>
-  <p class="header-tagline">Hukum Proust · La loi des proportions définies · 1799</p>
+  <p class="header-tagline">Joseph Louis Proust · 1799</p>
   <div class="teal-rule"></div>
 </header>
 
@@ -127,7 +147,7 @@ hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
     <div class="def-box">
       <p>Hukum Perbandingan Tetap (Law of Definite Proportions) menyatakan bahwa <strong>suatu senyawa kimia selalu mengandung unsur-unsur penyusunnya dalam perbandingan massa yang tetap dan tidak bergantung pada sumber atau cara pembuatannya.</strong></p>
       <p class="formula-center">massa unsur A : massa unsur B = konstan</p>
-      <p style="text-align:center;font-size:.9rem;color:var(--muted)">Air selalu tersusun dari H dan O dengan perbandingan massa 1 : 8, di mana pun di dunia ia dibuat.</p>
+      <p style="text-align:center;font-size:.9rem;color:rgba(255,255,255,0.8)">Air selalu tersusun dari H dan O dengan perbandingan massa 1 : 8, di mana pun di dunia ia dibuat.</p>
     </div>
   </section>
 
@@ -147,8 +167,8 @@ hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
       </div>
       <div>
         <p>Joseph Louis Proust adalah seorang kimiawan Prancis yang menghabiskan sebagian besar kariernya di Spanyol sebagai direktur laboratorium kerajaan di Madrid. Ia dikenal atas keteguhannya dalam melakukan analisis kuantitatif yang sangat teliti.</p>
-        <div style="background:rgba(45,212,191,0.07);border-left:3px solid var(--teal);padding:.85rem 1rem;border-radius:0 6px 6px 0;margin:1rem 0">
-          <em style="color:#c5e8e3">"Alam tidak menciptakan campuran; ia mengenal hanya senyawa yang pasti dan tetap."</em>
+        <div style="background:var(--surface2);border-left:4px solid var(--orange);padding:.85rem 1rem;border-radius:0 8px 8px 0;margin:1rem 0">
+          <em style="color:var(--orange-dark)">"Alam tidak menciptakan campuran; ia mengenal hanya senyawa yang pasti dan tetap."</em>
         </div>
         <p>Proust mendebat teori Berthollet selama hampir 8 tahun (1799–1807). Berthollet percaya bahwa komposisi senyawa bervariasi tergantung kondisi. Proust dengan sabar membuktikan melalui ratusan eksperimen bahwa Berthollet keliru.</p>
         <p>Karya monumentalnya akhirnya diterima luas setelah John Dalton menggunakannya sebagai landasan Teori Atom (1803), yang mengonfirmasi bahwa senyawa terbentuk dari atom-atom dalam rasio bilangan bulat yang tetap.</p>
@@ -197,8 +217,8 @@ hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
         </div>
       </div>
       <div style="display:flex;gap:1.5rem;margin-top:.75rem;font-size:.8rem">
-        <span><span style="display:inline-block;width:12px;height:12px;background:var(--teal);border-radius:2px;margin-right:4px;vertical-align:middle"></span>Hidrogen</span>
-        <span><span style="display:inline-block;width:12px;height:12px;background:var(--amber-dim);border-radius:2px;margin-right:4px;vertical-align:middle"></span>Oksigen</span>
+        <span><span style="display:inline-block;width:12px;height:12px;background:var(--orange-bright);border-radius:2px;margin-right:4px;vertical-align:middle"></span>Hidrogen</span>
+        <span><span style="display:inline-block;width:12px;height:12px;background:var(--orange-dark);border-radius:2px;margin-right:4px;vertical-align:middle"></span>Oksigen</span>
       </div>
     </div>
   </div>
@@ -252,7 +272,7 @@ hr{border:none;border-top:1px solid var(--border);margin:2.5rem 0}
 </div>
 
 <footer>
-  <p>Materi Kimia · <span>Hukum Perbandingan Tetap</span> · Proust (1799)</p>
+  <p><span>Hukum Perbandingan Tetap</span> · Proust (1799)</p>
 </footer>
 </body>
 </html>
