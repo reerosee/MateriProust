@@ -84,12 +84,14 @@ p{margin-bottom:1rem;color:var(--text)}
 .ratio-section{background:var(--surface);border:2px solid var(--orange-light);border-radius:12px;
   padding:1.75rem;margin-bottom:3rem;box-shadow:0 4px 16px rgba(249,115,22,0.1)}
 .ratio-section .section-tag{margin-bottom:.75rem}
-.ratio-table{width:100%;border-collapse:collapse;margin-top:1rem;border-radius:8px;overflow:hidden}
+.ratio-table{width:100%;border-collapse:collapse;margin-top:1rem;border-radius:8px;overflow:hidden;table-layout:fixed}
 .ratio-table th{background:linear-gradient(90deg,var(--orange-dark),var(--orange));
   color:#fff;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;
-  padding:.6rem 1rem;text-align:left}
+  padding:.6rem 1rem;text-align:center}
+.ratio-table th:first-child{text-align:left}
 .ratio-table td{padding:.7rem 1rem;border-bottom:1px solid var(--orange-light);
-  color:var(--text);font-size:.9rem;background:var(--surface)}
+  color:var(--text);font-size:.9rem;background:var(--surface);text-align:center}
+.ratio-table td:first-child{text-align:left}
 .ratio-table tr:last-child td{border-bottom:none}
 .ratio-table .highlight{color:var(--orange-dark);font-weight:600}
 
@@ -152,7 +154,7 @@ hr{border:none;border-top:2px solid var(--orange-light);margin:2.5rem 0}
   </section>
 
   <section>
-    <p class="section-tag">Sang Penemu</p>
+    <p class="section-tag">Penemu</p>
     <h2>Joseph Louis Proust</h2>
     <div class="penemu-grid">
       <div class="portrait-wrap">
@@ -182,13 +184,13 @@ hr{border:none;border-top:2px solid var(--orange-light);margin:2.5rem 0}
     <p style="color:var(--muted);font-size:.9rem">Tidak peduli dari mana air berasal — sungai, hujan, atau sintesis laboratorium — komposisinya selalu sama:</p>
     <table class="ratio-table">
       <thead>
-        <tr><th>Sumber Air</th><th>Massa H (gram)</th><th>Massa O (gram)</th><th>Rasio H:O</th><th>% Hydrogen</th></tr>
+        <tr><th>Sumber Air</th><th>Massa H (gram)</th><th>Massa O (gram)</th><th>Rasio H:O</th></tr>
       </thead>
       <tbody>
-        <tr><td>Air sungai (100g)</td><td>11.2</td><td>88.8</td><td class="highlight">1 : 7.93</td><td class="highlight">11.2%</td></tr>
-        <tr><td>Air hujan (100g)</td><td>11.2</td><td>88.8</td><td class="highlight">1 : 7.93</td><td class="highlight">11.2%</td></tr>
-        <tr><td>Sintesis lab (100g)</td><td>11.1</td><td>88.9</td><td class="highlight">1 : 8.01</td><td class="highlight">11.1%</td></tr>
-        <tr><td>Air laut (100g)</td><td>11.2</td><td>88.8</td><td class="highlight">≈ 1 : 8</td><td class="highlight">≈ 11.2%</td></tr>
+        <tr><td>Air sungai (100g)</td><td>11.2</td><td>88.8</td><td class="highlight">1 : 7.93</td></tr>
+        <tr><td>Air hujan (100g)</td><td>11.2</td><td>88.8</td><td class="highlight">1 : 7.93</td></tr>
+        <tr><td>Sintesis lab (100g)</td><td>11.1</td><td>88.9</td><td class="highlight">1 : 8.01</td></tr>
+        <tr><td>Air laut (100g)</td><td>11.2</td><td>88.8</td><td class="highlight">≈ 1 : 8</td></tr>
       </tbody>
     </table>
     <p style="margin-top:1rem;font-size:.85rem;color:var(--muted)">* Perbedaan kecil disebabkan ketidaktelitian pengukuran, bukan komposisi yang berbeda.</p>
